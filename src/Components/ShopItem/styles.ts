@@ -31,7 +31,7 @@ export const Container = styled.div`
   transition: all 0.2s;
 
   &:hover {
-    box-shadow: 0 0 32px #000;
+    box-shadow: 0 0 32px var(--black);
     transform: scale(1.02);
 
     button:before {
@@ -54,13 +54,13 @@ export const DescriptionContainer = styled.div`
 export const ItemName = styled.h3`
   font-size: 1.2rem;
   font-weight: 700;
-  color: #e5e5e5;
+  color: var(--white);
 `;
 
-export const ItemDescription = styled.div`
+export const ItemDescription = styled.p`
   font-size: 0.85rem;
   font-weight: 600;
-  color: #000;
+  color: var(--black);
   line-height: 20px;
 
   flex: 1;
