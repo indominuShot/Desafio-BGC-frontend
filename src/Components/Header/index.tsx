@@ -9,10 +9,10 @@ import {
 export default function Header() {
   return (
     <Container>
-      <Title>MinionShop</Title>
+      <Title>Minion Shop</Title>
 
       <UserContainer>
-        <UserName>Username</UserName>
+        <UserName>Luan</UserName>
         <UserAvatar src="https://github.com/indominuShot.png" />
       </UserContainer>
     </Container>

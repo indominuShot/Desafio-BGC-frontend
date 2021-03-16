@@ -4,6 +4,7 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 
   padding: 0 2.75rem;
   width: 100%;
@@ -13,10 +14,20 @@ export const Container = styled.header`
 `;
 
 export const Title = styled.div`
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--yellow);
   text-shadow: -6px 6px 4px #000;
+  letter-spacing: 8px;
+
+  @media (max-width: 550px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 412px) {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+  }
 `;
 
 export const UserContainer = styled.div`
@@ -29,6 +40,10 @@ export const UserName = styled.div`
   font-weight: 400;
   color: #e5e5e5;
   margin-right: 1rem;
+
+  @media (max-width: 375px) {
+    display: none;
+  }
 `;
 
 export const UserAvatar = styled.img`
