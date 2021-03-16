@@ -28,7 +28,7 @@ export const Form = styled.form`
   align-items: center;
 
   border-radius: 8px;
-  box-shadow: 0 0 32px #000;
+  box-shadow: 0 0 32px var(--black);
 
   @media (max-width: 425px) {
     padding: 2rem;
@@ -61,7 +61,7 @@ export const FormMain = styled.main`
     > span {
       font-size: 1rem;
       font-weight: 600;
-      color: #000;
+      color: var(--black);
     }
   }
 

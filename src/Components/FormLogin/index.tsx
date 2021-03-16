@@ -18,7 +18,7 @@ export default function FormLogin() {
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleLogin}>
         <FormHeader>
           <h3>Faça o Login</h3>
         </FormHeader>
@@ -26,19 +26,17 @@ export default function FormLogin() {
         <FormMain>
           <div>
             <span>Usuário</span>
-            <Input type="text" placeholder="Digite..." />
+            <Input type="text" placeholder="Digite..." required />
           </div>
 
           <div>
             <span>Senha</span>
-            <Input type="text" placeholder="Digite..." />
+            <Input type="text" placeholder="Digite..." required />
           </div>
         </FormMain>
 
         <FormFooter>
-          <button type="button" onClick={handleLogin}>
-            Login
-          </button>
+          <button type="submit">Login</button>
           <span>ou</span>
           <button type="button">Cadastrar</button>
         </FormFooter>
