@@ -17,7 +17,7 @@ export const Title = styled.div`
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--yellow);
-  text-shadow: -6px 6px 4px #000;
+  text-shadow: -6px 6px 4px var(--black);
   letter-spacing: 8px;
 
   @media (max-width: 550px) {
