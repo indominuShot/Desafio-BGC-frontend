@@ -6,6 +6,10 @@ export const Container = styled.div`
   column-gap: 3rem;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const LogoContainer = styled.section`
@@ -15,5 +19,9 @@ export const LogoContainer = styled.section`
 
   > img {
     height: 80%;
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
