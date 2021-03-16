@@ -35,14 +35,26 @@ export const UserContainer = styled.div`
   align-items: center;
 `;
 
-export const UserName = styled.div`
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #e5e5e5;
-  margin-right: 1rem;
+export const ShoppingCart = styled.div`
+  font-size: 0;
+  position: relative;
+  margin-right: 1.7rem;
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
 
-  @media (max-width: 375px) {
-    display: none;
+  &:hover {
+    background: var(--surface);
+  }
+
+  > span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: red;
+
+    position: absolute;
+    top: -5px;
+    right: -5px;
   }
 `;
 
