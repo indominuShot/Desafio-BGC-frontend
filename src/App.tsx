@@ -1,4 +1,5 @@
 import Header from './Components/Header';
+import { ShoppingCartProvider } from './Contexts/ShoppingCarContext';
 import Routes from './Routes';
 
 import './Styles/global.css';
@@ -6,8 +7,10 @@ import './Styles/global.css';
 function App() {
   return (
     <div className="app">
-      <Header />
-      <Routes />
+      <ShoppingCartProvider>
+        <Header />
+        <Routes />
+      </ShoppingCartProvider>
     </div>
   );
 }
