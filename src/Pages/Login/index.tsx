@@ -7,10 +7,7 @@ export default function Login() {
       <FormLogin />
 
       <LogoContainer>
-        <img
-          src="https://lh3.googleusercontent.com/proxy/dlvdaLxezvpIg8XzzesHt5qeC_vOrhuFVkfoPOMZFiMN7lWRAOAPBUlARoulFwqu3VNNQLxWDCLHfXBJr2TIQaMPMTQt0vOrXy93PH02--bAAoVxnQuq_kIXDDEXXw"
-          alt="minions"
-        />
+        <img src="/login-minion-background.png" alt="minions" />
       </LogoContainer>
     </Container>
   );
