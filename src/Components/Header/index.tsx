@@ -1,8 +1,9 @@
+import { FaShoppingCart as CartIcon } from 'react-icons/fa';
 import {
   Container,
   Title,
   UserContainer,
-  UserName,
+  ShoppingCart,
   UserAvatar,
 } from './styles';
 
@@ -12,7 +13,10 @@ export default function Header() {
       <Title>Minion Shop</Title>
 
       <UserContainer>
-        <UserName>Luan</UserName>
+        <ShoppingCart>
+          <CartIcon size={28} color="#fff" />
+          <span>3</span>
+        </ShoppingCart>
         <UserAvatar src="https://github.com/indominuShot.png" />
       </UserContainer>
     </Container>
