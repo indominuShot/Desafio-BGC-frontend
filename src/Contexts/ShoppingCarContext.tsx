@@ -9,19 +9,31 @@ interface _ShoppingCartProps {
 interface _ShoppingCarData {
   reservedItems: _ShopItem[];
   cartIsActive: boolean;
+  closeCart: () => void;
+  openCart: () => void;
 }
 
 export const shoppingCartContext = createContext({} as _ShoppingCarData);
 
 export function ShoppingCartProvider({ children }: _ShoppingCartProps) {
   const [reservedItems, setReservedItems] = useState<_ShopItem[]>([]);
-  const [cartIsActive, setCartIsActive] = useState<boolean>(true);
+  const [cartIsActive, setCartIsActive] = useState<boolean>(false);
+
+  function closeCart() {
+    setCartIsActive(false);
+  }
+
+  function openCart() {
+    setCartIsActive(true);
+  }
 
   return (
     <shoppingCartContext.Provider
       value={{
         reservedItems,
         cartIsActive,
+        closeCart,
+        openCart,
       }}
     >
       {children}
