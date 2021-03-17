@@ -1,3 +1,4 @@
+import { FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -12,7 +13,9 @@ import {
 export default function FormLogin() {
   const route = useHistory();
 
-  function handleLogin() {
+  function handleLogin(event: FormEvent) {
+    event.preventDefault();
+
     route.push('/shop');
   }
 
