@@ -19,20 +19,25 @@ import {
   Remove,
 } from './styles';
 
-export function ShoppingCart() {
-  const { closeCart } = useContext(shoppingCartContext);
+interface _ReservedItemProps {
+  itemName: string;
+  quantity: number;
+}
 
-  const ReservedItem = () => {
+export function ShoppingCart() {
+  const { closeCart, reservedItems } = useContext(shoppingCartContext);
+
+  const ReservedItem = ({ itemName, quantity }: _ReservedItemProps) => {
     return (
       <ItemContainer>
         <ItemImage src="https://www.jing.fm/clipimg/full/87-871470_minion-transparent-background-png-transparent-evil-minion-png.png" />
         <ItemName>
           <strong>Produto</strong>
-          <strong>Minion doidão de droga</strong>
+          <strong>{itemName}</strong>
         </ItemName>
 
         <ItemQty>
-          <span>2</span>
+          <span>{quantity}</span>
 
           <QtyControl>
             <UpIcon />
@@ -60,8 +65,12 @@ export function ShoppingCart() {
         </Header>
 
         <Content>
-          <ReservedItem />
-          <ReservedItem />
+          {reservedItems.map((item) => (
+            <ReservedItem
+              itemName={item.name}
+              quantity={item.quantityReserved}
+            />
+          ))}
         </Content>
       </Container>
     </Overlay>
