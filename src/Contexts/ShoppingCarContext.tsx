@@ -11,6 +11,7 @@ interface _ShoppingCarData {
   cartIsActive: boolean;
   closeCart: () => void;
   openCart: () => void;
+  addToCart: () => void;
 }
 
 export const shoppingCartContext = createContext({} as _ShoppingCarData);
@@ -27,6 +28,21 @@ export function ShoppingCartProvider({ children }: _ShoppingCartProps) {
     setCartIsActive(true);
   }
 
+  function addToCart() {
+    const alreadyInCart = reservedItems;
+
+    setReservedItems([
+      ...alreadyInCart,
+      {
+        id: '1',
+        name: 'teste',
+        value: 19.99,
+        description: 'teste',
+        quantityReserved: 2,
+      },
+    ]);
+  }
+
   return (
     <shoppingCartContext.Provider
       value={{
@@ -34,6 +50,7 @@ export function ShoppingCartProvider({ children }: _ShoppingCartProps) {
         cartIsActive,
         closeCart,
         openCart,
+        addToCart,
       }}
     >
       {children}
