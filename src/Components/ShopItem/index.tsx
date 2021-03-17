@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { shoppingCartContext } from '../../Contexts/ShoppingCarContext';
 import {
   Container,
   ItemImage,
@@ -9,6 +11,8 @@ import {
 } from './styles';
 
 export default function ShopItem() {
+  const { addToCart } = useContext(shoppingCartContext);
+
   return (
     <Container>
       <ItemImage src="https://www.jing.fm/clipimg/full/87-871470_minion-transparent-background-png-transparent-evil-minion-png.png" />
@@ -25,7 +29,7 @@ export default function ShopItem() {
             <strong>R$ 19,99</strong>
           </div>
 
-          <Button>Comprar</Button>
+          <Button onClick={addToCart}>Comprar</Button>
         </BuyContainer>
       </DescriptionContainer>
     </Container>
