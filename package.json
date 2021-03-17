@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.8",
+    "aws-amplify": "^3.3.24",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
