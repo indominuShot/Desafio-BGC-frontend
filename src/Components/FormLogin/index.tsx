@@ -1,5 +1,5 @@
-import { FormEvent } from 'react';
-import { useHistory } from 'react-router-dom';
+import { FormEvent, useContext, useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -9,14 +9,39 @@ import {
   FormFooter,
   Input,
 } from './styles';
+import Button from '../Button';
+import { userContext } from '../../Contexts/userContext';
 
 export default function FormLogin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsloading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const { handleUserLogin } = useContext(userContext);
+
   const route = useHistory();
+
+  useEffect(() => {
+    if (password.length < 8) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+  }, [password]);
 
   function handleLogin(event: FormEvent) {
     event.preventDefault();
+    setIsloading(true);
 
-    route.push('/shop');
+    handleUserLogin(email, password).then((loginSucceeded) => {
+      if (loginSucceeded) {
+        setIsloading(false);
+        route.push('/');
+      } else {
+        setIsloading(false);
+      }
+    });
   }
 
   return (
@@ -28,20 +53,43 @@ export default function FormLogin() {
 
         <FormMain>
           <div>
-            <span>Usuário</span>
-            <Input type="text" placeholder="Digite..." required />
+            <span>Email</span>
+            <Input
+              type="email"
+              placeholder="Digite..."
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
           <div>
             <span>Senha</span>
-            <Input type="text" placeholder="Digite..." required />
+            <Input
+              type="password"
+              placeholder="Digite..."
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
         </FormMain>
 
         <FormFooter>
-          <button type="submit">Login</button>
+          <Button
+            type="submit"
+            isLoading={isLoading}
+            disabled={error}
+          >
+            Login
+          </Button>
           <span>ou</span>
-          <button type="button">Cadastrar</button>
+          <Button
+            type="button"
+            backgroundColor="var(--yellow)"
+            hoverColor="#756426"
+            textColor="var(--black)"
+          >
+            <Link to="/register">Cadastrar</Link>
+          </Button>
         </FormFooter>
       </Form>
     </Container>
