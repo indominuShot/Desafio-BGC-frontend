@@ -31,7 +31,7 @@ export const Container = styled.div`
   transition: all 0.2s;
 
   &:hover {
-    box-shadow: 0 0 32px var(--black);
+    box-shadow: var(--box-shadow-black-32);
     transform: scale(1.02);
 
     button:before {
