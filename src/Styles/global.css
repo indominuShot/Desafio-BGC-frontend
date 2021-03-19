@@ -1,22 +1,25 @@
-*{
+* {
   padding: 0;
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-@media (max-width: 1080px){
-  html{
+@media (max-width: 1080px) {
+  html {
     font-size: 93.75%;
   }
 }
 
-@media (max-width: 720px){
-  html{
+@media (max-width: 720px) {
+  html {
     font-size: 87.5%;
   }
 }
 
-html, body, #root, .app{
+html,
+body,
+#root,
+.app {
   height: 100vh;
   width: 100vw;
   background-color: var(--background);
@@ -24,19 +27,20 @@ html, body, #root, .app{
   overflow-x: hidden;
 }
 
-.app{
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 2;
 }
 
-
-button, input, textarea{
+button,
+input,
+textarea {
   font-family: 'Poppins', sans-serif;
 }
 
-input{
+input {
   background: transparent;
   border: none;
   border: 2px solid var(--outline);
@@ -52,23 +56,26 @@ input{
   height: 3rem;
 }
 
-input:focus{
-  box-shadow:0 0 1px 1px var(--yellow);
+input:focus {
+  box-shadow: 0 0 1px 1px var(--yellow);
 }
 
-input::placeholder{
+input::placeholder {
   color: var(--outline);
   font-size: 1rem;
   font-weight: 600;
-
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-button{
+button {
   background: var(--blue);
   color: #fff;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 600;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1.6rem;
@@ -78,21 +85,35 @@ button{
   transition: background 0.2s;
 
   height: 3rem;
+
+  position: relative;
 }
 
-button:hover{
+button a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
   background: var(--blue-hover);
 }
 
-:root{
-  --background: #0A0F13;
-  --outline: #212D2E;
+:root {
+  --background: #0a0f13;
+  --outline: #212d2e;
   --yellow: #efcb4c;
-  --surface: #121b1b;
+  --surface: #131d1d;
   --blue: #2d5a77;
   --blue-hover: #1d3b4e;
   --green: #1dad1d;
   --black: #000;
   --white: #e5e5e5;
-  --red: #c50c0c
+  --red: #c50c0c;
+  --box-shadow-black-32: 0 0 32px var(--black);
 }
