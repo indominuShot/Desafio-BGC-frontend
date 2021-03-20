@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { Auth } from 'aws-amplify';
 
 import _AuthAwsError from '../../@types/_AuthAwsError';
@@ -14,19 +14,21 @@ import {
 } from './styles';
 import Button from '../Button';
 import ConfirmAuthCodeBox from '../ConfirmAuthCodeBox';
+import { userContext } from '../../Contexts/userContext';
 
 export default function FormLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [isLoading, setIsloading] = useState(false);
-  const [error, setError] = useState(false);
-  const [isWaitingVerification, setIsWaitingVerification] = useState(
-    false
+  const [isPasswordsDivergents, setError] = useState(false);
+
+  const { isWaitingVerificationCode, waitForVerificationCode } = useContext(
+    userContext
   );
 
   useEffect(() => {
-    if (password !== passwordConfirm || password.length < 8) {
+    if (password !== passwordConfirm) {
       setError(true);
     } else {
       setError(false);
@@ -41,9 +43,8 @@ export default function FormLogin() {
       username: email,
       password,
     })
-      .then((event) => {
-        console.log(event);
-        setIsWaitingVerification(true);
+      .then(() => {
+        waitForVerificationCode();
       })
       .catch((error: _AuthAwsError) => {
         setIsloading(false);
@@ -51,10 +52,8 @@ export default function FormLogin() {
       });
   }
 
-  if (isWaitingVerification) {
-    return (
-      <ConfirmAuthCodeBox userName={email} password={password} />
-    );
+  if (isWaitingVerificationCode) {
+    return <ConfirmAuthCodeBox userName={email} password={password} />;
   }
 
   return (
@@ -79,18 +78,28 @@ export default function FormLogin() {
             <span>Senha</span>
             <Input
               type="password"
+              minLength={8}
               placeholder="Digite..."
               required
               onChange={(e) => setPassword(e.target.value)}
             />
             <span>Confirmar senha </span>
             <Input
-              error={error}
+              error={isPasswordsDivergents}
+              minLength={8}
               type="password"
               placeholder="Digite..."
               required
               onChange={(e) => setPasswordConfirm(e.target.value)}
             />
+            <span
+              style={{
+                fontSize: '0.7rem',
+                color: 'var(--white)',
+              }}
+            >
+              Senha no mínimo de 8 caracteres
+            </span>
           </div>
         </FormMain>
 
@@ -98,9 +107,9 @@ export default function FormLogin() {
           <Button
             type="submit"
             isLoading={isLoading}
-            disabled={error}
+            disabled={isPasswordsDivergents}
           >
-            Confirmar
+            {isPasswordsDivergents ? 'Senhas não conferem' : 'Confirmar'}
           </Button>
         </FormFooter>
       </Form>
