@@ -8,12 +8,7 @@ import { userContext } from '../../Contexts/userContext';
 import verifyUserAccess from '../../Utils/verifyUserAccess';
 
 import Button from '../Button';
-import {
-  Container,
-  VerificationBox,
-  CodeInput,
-  Title,
-} from './styles';
+import { Container, VerificationBox, CodeInput, Title } from './styles';
 
 interface _ConfirmAuthCodeBox {
   userName: string;
@@ -28,7 +23,7 @@ export default function ConfirmAuthCodeBox({
   const [load, setLoad] = useState(false);
   const [disableButton, setDisableButton] = useState(false);
 
-  const { handleUserLogin } = useContext(userContext);
+  const { handleUserLogin, userCredentials } = useContext(userContext);
 
   const route = useHistory();
 
@@ -45,11 +40,11 @@ export default function ConfirmAuthCodeBox({
 
     setLoad(true);
 
-    Auth.confirmSignUp(userName, codeValue)
+    Auth.confirmSignUp(userName ? userName : userCredentials.email, codeValue)
       .then(async () => {
         const loginSucceeded = await handleUserLogin(
-          userName,
-          password
+          userName ? userName : userCredentials.email,
+          password ? password : userCredentials.password
         );
 
         if (loginSucceeded) {
@@ -72,11 +67,7 @@ export default function ConfirmAuthCodeBox({
         <Title>
           Enviamos um código para: <span>{userName}</span>
         </Title>
-        <CodeInput
-          onChange={(e) => setCodeValue(e)}
-          required
-          fieldWidth={45}
-        />
+        <CodeInput onChange={(e) => setCodeValue(e)} required fieldWidth={45} />
         <Button
           onClick={handleVerificationCode}
           isLoading={load}
