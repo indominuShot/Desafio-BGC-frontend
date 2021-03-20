@@ -16,19 +16,17 @@ export default function FormLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsloading] = useState(false);
-  const [error, setError] = useState(false);
 
-  const { handleUserLogin } = useContext(userContext);
+  const { handleUserLogin, cancelWaitForVerificationCode } = useContext(
+    userContext
+  );
 
   const route = useHistory();
 
   useEffect(() => {
-    if (password.length < 8) {
-      setError(true);
-    } else {
-      setError(false);
-    }
-  }, [password]);
+    cancelWaitForVerificationCode();
+    //eslint-disable-next-line
+  }, []);
 
   function handleLogin(event: FormEvent) {
     event.preventDefault();
@@ -68,17 +66,23 @@ export default function FormLogin() {
               type="password"
               placeholder="Digite..."
               required
+              minLength={8}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <span
+              style={{
+                fontSize: '0.7rem',
+                color: 'var(--white)',
+                marginTop: '0.3rem',
+              }}
+            >
+              Senha no mínimo de 8 caracteres
+            </span>
           </div>
         </FormMain>
 
         <FormFooter>
-          <Button
-            type="submit"
-            isLoading={isLoading}
-            disabled={error}
-          >
+          <Button type="submit" isLoading={isLoading}>
             Login
           </Button>
           <span>ou</span>
