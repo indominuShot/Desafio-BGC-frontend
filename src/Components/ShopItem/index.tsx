@@ -10,7 +10,11 @@ import {
   Button,
 } from './styles';
 
-export default function ShopItem() {
+interface _ShopItemProps {
+  data: any;
+}
+
+export default function ShopItem({ data }: _ShopItemProps) {
   const { addToCart } = useContext(shoppingCartContext);
 
   return (
@@ -18,7 +22,7 @@ export default function ShopItem() {
       <ItemImage src="https://www.jing.fm/clipimg/full/87-871470_minion-transparent-background-png-transparent-evil-minion-png.png" />
 
       <DescriptionContainer>
-        <ItemName> Minion doidão de droga</ItemName>
+        <ItemName>{data.name}</ItemName>
         <ItemDescription>
           Este minion está preparado para fazer qualquer tipo de coisa errada
         </ItemDescription>
@@ -26,10 +30,10 @@ export default function ShopItem() {
         <BuyContainer>
           <div>
             <span>Por apenas:</span>
-            <strong>R$ 19,99</strong>
+            <strong>R$ {data.locationValue}</strong>
           </div>
 
-          <Button onClick={addToCart}>Comprar</Button>
+          <Button onClick={addToCart}>Reservar</Button>
         </BuyContainer>
       </DescriptionContainer>
     </Container>
