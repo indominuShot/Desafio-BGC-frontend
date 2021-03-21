@@ -11,7 +11,12 @@ export default function Shop() {
     API.get('serverless', '/', {
       headers: {},
       response: true,
-    }).then((e) => setMinions(e.data.Items));
+    }).then((e: any) => setMinions(e.data.Items));
+
+    /*  API.post('serverless', '/sale/create', {
+      headers: {},
+      response: true,
+    }).then((e) => console.log(e)); */
   }, []);
 
   return (

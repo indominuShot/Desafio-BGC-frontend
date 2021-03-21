@@ -9,8 +9,8 @@ import Shop from './Pages/Shop';
 export default function Routes() {
   return (
     <BrowserRouter>
-      <ShoppingCartProvider>
-        <UserProvider>
+      <UserProvider>
+        <ShoppingCartProvider>
           <Header />
 
           <Switch>
@@ -18,8 +18,8 @@ export default function Routes() {
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
           </Switch>
-        </UserProvider>
-      </ShoppingCartProvider>
+        </ShoppingCartProvider>
+      </UserProvider>
     </BrowserRouter>
   );
 }

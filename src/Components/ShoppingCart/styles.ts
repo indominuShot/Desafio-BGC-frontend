@@ -26,8 +26,8 @@ export const Overlay = styled.div`
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  max-height: 28rem;
-  max-width: 40rem;
+  max-height: 35rem;
+  max-width: 47rem;
 
   background: var(--surface);
   border-radius: 10px;
@@ -108,9 +108,10 @@ export const ItemContainer = styled.div`
   width: 100%;
   height: 4.3rem;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   border-radius: 5px;
   border: 1px solid var(--blue);
@@ -126,6 +127,7 @@ export const ItemImage = styled.img`
   height: 2.8rem;
   border-radius: 50%;
   background: var(--black);
+  object-fit: contain;
 `;
 
 export const ItemName = styled.div`
@@ -159,6 +161,7 @@ export const ItemName = styled.div`
 export const ItemQty = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-around;
 
   > span {
     font-size: 1.6rem;
@@ -191,6 +194,7 @@ export const QtyControl = styled.div`
       filter: brightness(0.7);
     }
   }
+
   > svg:first-child {
     fill: var(--green);
   }
@@ -222,6 +226,66 @@ export const Remove = styled.div`
     }
     > svg {
       display: block;
+    }
+  }
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > strong {
+    color: var(--black);
+
+    > strong {
+      color: var(--white);
+      margin-left: 1rem;
+    }
+  }
+`;
+
+export const RequestLoginContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  max-height: 35rem;
+  max-width: 47rem;
+
+  background: var(--surface);
+  border-radius: 10px;
+  border: 2px solid var(--outline);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.4rem;
+
+  animation: ${expands} 0.1s cubic-bezier(0.57, 0.68, 0.96, 0.52);
+
+  @media (max-width: 585px) {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  > strong {
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  > img {
+    flex: 1;
+    object-fit: contain;
+  }
+
+  > div {
+    width: 60%;
+
+    > button + button {
+      margin-top: 2rem;
     }
   }
 `;

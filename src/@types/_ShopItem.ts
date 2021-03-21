@@ -4,4 +4,5 @@ export default interface _ShopItem {
   description: string;
   value: number;
   quantityReserved: number;
+  imageURL: string;
 }

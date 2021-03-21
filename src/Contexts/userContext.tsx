@@ -47,13 +47,16 @@ export default function UserProvider({ children }: _UserProviderProps) {
         const userInfo = JSON.stringify({
           userName: event.username,
           userId: event.pool.clientId,
+          userEmail: event.attributes.email,
         });
 
         setIslogged(true);
+
         toast.success('Seja bem vindo!', {
           pauseOnHover: false,
           autoClose: 3000,
         });
+
         localStorage.setItem('userData', userInfo);
 
         return true;

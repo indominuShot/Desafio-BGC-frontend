@@ -1,5 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
+import { FaCheck as CheckIcon } from 'react-icons/fa';
+
 import { shoppingCartContext } from '../../Contexts/ShoppingCarContext';
+import _ShopItem from '../../@types/_ShopItem';
+import numberToPtBrFormat from '../../Utils/numberToPtBrFormat';
+
 import {
   Container,
   ItemImage,
@@ -11,29 +16,47 @@ import {
 } from './styles';
 
 interface _ShopItemProps {
-  data: any;
+  data: _ShopItem;
 }
 
 export default function ShopItem({ data }: _ShopItemProps) {
-  const { addToCart } = useContext(shoppingCartContext);
+  const { addToCart, removeFromCart, reservedItems } = useContext(
+    shoppingCartContext
+  );
+
+  const shopItemData = useMemo((): _ShopItem => {
+    return {
+      ...data,
+    };
+  }, [data]);
 
   return (
     <Container>
-      <ItemImage src="https://www.jing.fm/clipimg/full/87-871470_minion-transparent-background-png-transparent-evil-minion-png.png" />
+      <ItemImage src={shopItemData.imageURL} />
 
       <DescriptionContainer>
-        <ItemName>{data.name}</ItemName>
-        <ItemDescription>
-          Este minion está preparado para fazer qualquer tipo de coisa errada
-        </ItemDescription>
+        <ItemName>{shopItemData.name}</ItemName>
+        <ItemDescription>{shopItemData.description}</ItemDescription>
 
         <BuyContainer>
           <div>
             <span>Por apenas:</span>
-            <strong>R$ {data.locationValue}</strong>
+            <strong>{numberToPtBrFormat(shopItemData.value)}</strong>
           </div>
 
-          <Button onClick={addToCart}>Reservar</Button>
+          {reservedItems
+            .map((reservedItem) => reservedItem.id)
+            .includes(shopItemData.id) ? (
+            <Button
+              onClick={() => removeFromCart(shopItemData.id)}
+              style={{ background: 'var(--green)', animation: 'none' }}
+            >
+              No carrinho
+              <CheckIcon />
+            </Button>
+          ) : (
+            <Button onClick={() => addToCart(shopItemData)}>Reservar</Button>
+          )}
         </BuyContainer>
       </DescriptionContainer>
     </Container>

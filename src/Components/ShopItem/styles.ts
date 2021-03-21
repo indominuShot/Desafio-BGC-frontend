@@ -22,6 +22,7 @@ export const Container = styled.div`
 
   max-width: 18rem;
   height: max-content;
+  min-height: 30rem;
 
   padding: 3rem 1.7rem;
   margin: 0 auto;
@@ -47,6 +48,7 @@ export const ItemImage = styled.img`
 
 export const DescriptionContainer = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
 `;
@@ -63,6 +65,8 @@ export const ItemDescription = styled.p`
   color: var(--black);
   line-height: 20px;
 
+  display: flex;
+  align-items: center;
   flex: 1;
   margin: 1rem 0;
 `;
@@ -93,6 +97,13 @@ export const BuyContainer = styled.div`
 export const Button = styled.button`
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
+    margin-left: 1.4rem;
+  }
 
   &:before {
     content: '';

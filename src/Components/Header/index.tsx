@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom';
 import { shoppingCartContext } from '../../Contexts/ShoppingCarContext';
 import { userContext } from '../../Contexts/userContext';
 
-import {
-  Container,
-  Title,
-  UserContainer,
-  ShoppingCart,
-} from './styles';
+import { Container, Title, UserContainer, ShoppingCart } from './styles';
 
 export default function Header() {
   const { isLogged, handleUserLogout } = useContext(userContext);
@@ -22,17 +17,16 @@ export default function Header() {
 
   return (
     <Container>
-      <Title>Minion Shop</Title>
+      <Link to="/">
+        <Title>Minion Shop</Title>
+      </Link>
 
       <UserContainer>
         <ShoppingCart onClick={openCart}>
           <CartIcon size={28} color="#fff" />
           <span
             style={{
-              color:
-                reservedItems.length > 0
-                  ? 'var(--green)'
-                  : 'var(--red)',
+              color: reservedItems.length > 0 ? 'var(--green)' : 'var(--red)',
             }}
           >
             {reservedItems.length}

@@ -21,10 +21,6 @@ export const Container = styled.button<_Button>`
   justify-content: center;
   width: 100%;
 
-  &:hover {
-    background: ${({ hoverColor }) => hoverColor && hoverColor};
-  }
-
   > svg {
     color: ${({ textColor }) => textColor && textColor};
     animation: ${rotate} 1s infinite;
