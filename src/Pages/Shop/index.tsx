@@ -8,15 +8,10 @@ export default function Shop() {
   const [minions, setMinions] = useState([]);
 
   useEffect(() => {
-    API.get('serverless', '/', {
+    API.get('serverless', '/minions', {
       headers: {},
       response: true,
     }).then((e: any) => setMinions(e.data.Items));
-
-    /*  API.post('serverless', '/sale/create', {
-      headers: {},
-      response: true,
-    }).then((e) => console.log(e)); */
   }, []);
 
   return (
