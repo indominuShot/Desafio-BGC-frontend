@@ -1,17 +1,19 @@
-import { API } from 'aws-amplify';
 import { useEffect, useState } from 'react';
 
+import products from '../../Services/products.json';
 import ShopItem from '../../Components/ShopItem';
 import { Container, ItemList } from './styles';
 
 export default function Shop() {
-  const [minions, setMinions] = useState([]);
+  const [minions, setMinions] = useState<any[]>([]);
 
   useEffect(() => {
-    API.get('serverless', '/minions', {
+    /* API.get('serverless', '/minions', {
       headers: {},
       response: true,
-    }).then((e: any) => setMinions(e.data.Items));
+    }).then((e: any) => setMinions(e.data.Items)); */
+
+    setMinions(products.Items);
   }, []);
 
   return (
