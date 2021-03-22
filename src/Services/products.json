@@ -1,0 +1,80 @@
+{
+  "Items": [
+    {
+      "value": 23.5,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/Bob+kid.png",
+      "updatedAt": "2021-03-20T23:22:39.748Z",
+      "createdAt": "2021-03-20T23:22:39.748Z",
+      "quantityReserved": 0,
+      "description": "Bob é o Minion mais infantil de todos.",
+      "id": "29cf0530-89d3-11eb-a802-b78f64fe4e83",
+      "name": "Bob"
+    },
+    {
+      "value": 14.5,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/phil.png",
+      "updatedAt": "2021-03-20T23:31:01.758Z",
+      "createdAt": "2021-03-20T23:31:01.758Z",
+      "quantityReserved": 0,
+      "description": "É o mais engraçado, ri de qualquer coisa",
+      "id": "5507aad0-89d4-11eb-8885-ab4bb3e5836e",
+      "name": "Phil"
+    },
+    {
+      "value": 99.99,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/doidao.png",
+      "updatedAt": "2021-03-20T23:34:55.547Z",
+      "createdAt": "2021-03-20T23:34:55.547Z",
+      "quantityReserved": 0,
+      "description": "Cuidado! Este minion pode te morder a qualquer momento.",
+      "id": "e06130b0-89d4-11eb-a755-2f286cf10e14",
+      "name": "Minion doidão"
+    },
+    {
+      "value": 9.99,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/dave.jpg",
+      "updatedAt": "2021-03-20T23:28:36.433Z",
+      "createdAt": "2021-03-20T23:28:36.433Z",
+      "quantityReserved": 0,
+      "description": "É o irmão de dois olhos do Stuart.",
+      "id": "fe68d500-89d3-11eb-9a33-21148f12b8f0",
+      "name": "Dave"
+    },
+    {
+      "value": 19.99,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/stuart.jpg",
+      "updatedAt": "2021-03-20T23:24:33.321Z",
+      "createdAt": "2021-03-20T23:24:33.321Z",
+      "quantityReserved": 0,
+      "description": "Stuart é o mais sincero e inocente de todos.",
+      "id": "6d80e280-89d3-11eb-bcc2-13908fe4144d",
+      "name": "Stuart"
+    },
+    {
+      "createdAt": "2021-03-21T21:54:58.100Z",
+      "id": "14090030-8a90-11eb-8c1a-f3c866f9f9ac",
+      "updatedAt": "2021-03-21T21:54:58.100Z",
+      "test": "test"
+    },
+    {
+      "value": 35.99,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/kevin.jpg",
+      "updatedAt": "2021-03-20T23:27:20.258Z",
+      "createdAt": "2021-03-20T23:27:20.258Z",
+      "quantityReserved": 0,
+      "description": "É o personagem mais responsável de todos, ele vai liderar a busca por um vilão.",
+      "id": "d1019a20-89d3-11eb-b2e6-b3775ff86c6d",
+      "name": "Kevin"
+    },
+    {
+      "value": 19.99,
+      "imageURL": "https://bgc-minions.s3-sa-east-1.amazonaws.com/minions/minions/jerry.png",
+      "updatedAt": "2021-03-20T23:31:53.325Z",
+      "createdAt": "2021-03-20T23:31:53.325Z",
+      "quantityReserved": 0,
+      "description": "Jerry gosta de gritar… “O QUEEEEEEEEEEE?”",
+      "id": "73c451d0-89d4-11eb-adc4-4dbea2532e78",
+      "name": "Jerry"
+    }
+  ]
+}
