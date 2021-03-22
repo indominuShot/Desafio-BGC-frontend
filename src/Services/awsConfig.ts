@@ -14,7 +14,7 @@ const awsConfig = {
     endpoints: [
       {
         name: 'serverless',
-        endpoint: 'https://dorb95m278.execute-api.sa-east-1.amazonaws.com/dev',
+        endpoint: 'https://v5akl8kck7.execute-api.sa-east-1.amazonaws.com/dev',
         region: 'sa-east-1',
       },
     ],
